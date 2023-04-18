@@ -1,4 +1,5 @@
 import Seo from "@/ui/components/Seo";
+import Typography from "@/ui/design-system/typography/Typography";
 
 export default function Home() {
   return (
@@ -7,7 +8,9 @@ export default function Home() {
         title="Codeurs Monkeys"
         description="Mon super projet pour apprendre Next.js"
       />
-      <h1>Hello world</h1>
+      <Typography variant="display" component="div">
+        Hello world{" "}
+      </Typography>
     </>
   );
 }
