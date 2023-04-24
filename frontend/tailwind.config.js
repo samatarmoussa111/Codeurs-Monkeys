@@ -149,6 +149,10 @@ module.exports = {
         },
       ],
     },
+    borderRadius: {
+      DEFAULT: "10px",
+      full: "9999px",
+    },
     extend: {
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
