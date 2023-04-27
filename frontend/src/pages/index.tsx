@@ -1,5 +1,6 @@
 import Seo from "@/ui/components/Seo";
 import Button from "@/ui/design-system/button/Button";
+import Spinner from "@/ui/design-system/spinner/Spinner";
 import Typography from "@/ui/design-system/typography/Typography";
 import { RiHome2Line } from "react-icons/ri";
 
@@ -27,9 +28,25 @@ export default function Home() {
           Facilitez vous la vie grâce à l'automatistion
         </Typography>
         <div className="flex items-center gap-4">
-          <Button size="large" variant="primary" icon={{ icon: RiHome2Line }}>
+          <Button
+            size="large"
+            variant="secondary"
+            isLoading
+            icon={{ icon: RiHome2Line }}
+          >
             S'abonner
           </Button>
+          <Button
+            size="large"
+            variant="primary"
+            isLoading
+            icon={{ icon: RiHome2Line }}
+          >
+            S'abonner
+          </Button>
+          <Spinner size="small" />
+          <Spinner size="medium" />
+          <Spinner size="large" />
           <Button size="medium" variant="primary" icon={{ icon: RiHome2Line }}>
             S'abonner
           </Button>
@@ -45,7 +62,12 @@ export default function Home() {
           <Button size="large" variant="disabled" disabled>
             S'abonner
           </Button>
-          <Button size="large" variant="icon" icon={{ icon: RiHome2Line }} />
+          <Button
+            size="large"
+            variant="icon"
+            icon={{ icon: RiHome2Line }}
+            isLoading
+          />
         </div>
         <div className="flex items-center gap-4">
           <Button size="medium" variant="primary">
@@ -63,6 +85,26 @@ export default function Home() {
           <Button
             size="medium"
             iconTheme="gray"
+            variant="icon"
+            icon={{ icon: RiHome2Line }}
+          />
+        </div>
+        <div className="flex items-center gap-4">
+          <Button size="small" variant="primary">
+            S'abonner
+          </Button>
+          <Button size="small" variant="secondary">
+            S'abonner
+          </Button>
+          <Button size="small" variant="outline">
+            S'abonner
+          </Button>
+          <Button size="small" variant="disabled" disabled>
+            S'abonner
+          </Button>
+          <Button
+            size="small"
+            iconTheme="secondary"
             variant="icon"
             icon={{ icon: RiHome2Line }}
           />
