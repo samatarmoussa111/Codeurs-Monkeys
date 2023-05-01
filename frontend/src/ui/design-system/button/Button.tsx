@@ -105,10 +105,11 @@ const Button = ({
       >
         {isLoading && (
           <div className="absolute inset-0 flex items-center justify-center">
-            {variant === "primary" || "icon" ? (
+            {(variant === "icon" || variant === "primary") &&
+            iconTheme !== "secondary" ? (
               <Spinner size="small" variant="white" />
             ) : (
-              <Spinner size="small" />
+              <Spinner size="small" variant="primary" />
             )}
           </div>
         )}
