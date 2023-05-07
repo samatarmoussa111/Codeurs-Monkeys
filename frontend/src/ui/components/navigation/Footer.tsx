@@ -5,7 +5,8 @@ import { footerLink } from "./appLinks";
 import { v4 as uuidv4 } from "uuid";
 import { AppLinks } from "@/types/app-links";
 import ActiveLink from "./ActiveLink";
-import { linkType } from "@/lib/link-type";
+import { LinkTypes } from "@/lib/link-type";
+import SocialNetworkButtons from "./SocialNetworkButtons";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -49,7 +50,9 @@ const Footer = () => {
               {`Samatar Moussa - Developpeur web & mobile`}
             </a>
           </Typography>
-          <div>liens reseaux sociaux</div>
+          <div className="">
+            <SocialNetworkButtons theme="gray" />
+          </div>
         </div>
       </Container>
     </div>
@@ -65,10 +68,10 @@ const FooterLink = ({ data, title }: footerLinkProps) => {
   const linkList = data.map((link: any) => {
     return (
       <div key={uuidv4()}>
-        {link.type === linkType.INTERNAL && (
+        {link.type === LinkTypes.INTERNAL && (
           <ActiveLink href={link.baseUrl}>{link.label}</ActiveLink>
         )}
-        {link.type === linkType.EXTERNAL && (
+        {link.type === LinkTypes.EXTERNAL && (
           <a href={link.baseUrl} target="_blank">
             {link.label}
           </a>

@@ -1,6 +1,6 @@
 export type LinkType = "internal" | "external";
 
-export const linkType: Record<string, LinkType> = {
+export const LinkTypes: Record<string, LinkType> = {
   INTERNAL: "internal",
   EXTERNAL: "external",
 };

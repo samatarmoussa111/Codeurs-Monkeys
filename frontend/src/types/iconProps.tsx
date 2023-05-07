@@ -1,3 +1,5 @@
+import { IconType } from "react-icons/lib";
+
 export interface iconProps {
-  icon: React.ElementType;
+  icon: IconType;
 }
