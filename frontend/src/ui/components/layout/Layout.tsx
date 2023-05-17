@@ -1,14 +1,17 @@
+import BreadCrumbs from "../breadcrumbs/BreadCrumbs";
 import Footer from "../navigation/Footer";
 import Navigation from "../navigation/Navigation";
 
 interface Props {
   children: React.ReactNode;
+  isDisplayBreadcrumbs?: boolean;
 }
 
-const Layout = ({ children }: Props) => {
+const Layout = ({ children, isDisplayBreadcrumbs = true }: Props) => {
   return (
     <>
       <Navigation />
+      {isDisplayBreadcrumbs && <BreadCrumbs />}
       {children}
       <Footer />
     </>

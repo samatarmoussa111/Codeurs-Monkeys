@@ -1,17 +1,16 @@
 import Layout from "@/ui/components/layout/Layout";
 import Seo from "@/ui/components/seo/Seo";
-import LandingPageContainer from "@/ui/modules/landing-page/LandingPageContainer";
 
-export default function Home() {
+const MotDePasseOublie = () => {
   return (
     <>
       <Seo
         title="Coders Monkeys"
         description="Mon super projet pour apprendre Next.js"
       />
-      <Layout isDisplayBreadcrumbs={false}>
-        <LandingPageContainer />
-      </Layout>
+      <Layout>Mot de passe oublié</Layout>
     </>
   );
-}
+};
+
+export default MotDePasseOublie;

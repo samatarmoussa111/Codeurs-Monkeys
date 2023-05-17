@@ -6,7 +6,13 @@ import Link from "next/link";
 
 interface Props {
   size?: "small" | "medium" | "large";
-  variant?: "primary" | "secondary" | "outline" | "disabled" | "icon";
+  variant?:
+    | "primary"
+    | "secondary"
+    | "outline"
+    | "disabled"
+    | "icon"
+    | "success";
   icon?: iconProps;
   iconTheme?: "primary" | "secondary" | "gray";
   iconPosition?: "left" | "right";
@@ -39,6 +45,9 @@ const Button = ({
     case "primary": // Default
       variantStyles = "bg-primary hover:bg-primary-400 text-white rounded";
       break;
+    case "success":
+      variantStyles = "bg-secondary hover:bg-secondary-400 text-white rounded";
+      break;
     case "secondary":
       variantStyles =
         "bg-primary-200 hover:bg-primary-300/50 text-primary rounded";
@@ -64,6 +73,7 @@ const Button = ({
       if (iconTheme === "gray") {
         variantStyles = "bg-gray-800 hover:bg-gray-700 text-white rounded-full";
       }
+
       break;
   }
 
