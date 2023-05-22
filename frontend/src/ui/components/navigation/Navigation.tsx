@@ -36,10 +36,15 @@ const Navigation = ({}: Props) => {
             <ActiveLink href="/contact">Contact</ActiveLink>
           </Typography>
           <div className="flex items-center gap-2">
-            <Button size="small">Connexion</Button>
-            <Button size="small" variant="secondary">
-              Rejoindre
-            </Button>
+            <Link href="/connexion">
+              <Button size="small">Connexion</Button>
+            </Link>
+
+            <Link href="/connexion/inscription">
+              <Button size="small" variant="secondary">
+                Rejoindre
+              </Button>
+            </Link>
           </div>
         </div>
       </Container>
