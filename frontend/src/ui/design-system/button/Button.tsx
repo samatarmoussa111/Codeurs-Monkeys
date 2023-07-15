@@ -12,7 +12,8 @@ interface Props {
     | "outline"
     | "disabled"
     | "icon"
-    | "success";
+    | "success"
+    | "danger";
   icon?: iconProps;
   iconTheme?: "primary" | "secondary" | "gray";
   iconPosition?: "left" | "right";
@@ -51,6 +52,10 @@ const Button = ({
       break;
     case "success":
       variantStyles = "bg-secondary hover:bg-secondary-400 text-white rounded";
+      break;
+    case "danger":
+      variantStyles =
+        "bg-alert-danger hover:bg-alert-danger/75 text-white rounded";
       break;
     case "secondary":
       variantStyles =

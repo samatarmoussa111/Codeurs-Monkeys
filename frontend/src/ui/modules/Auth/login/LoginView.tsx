@@ -39,6 +39,14 @@ const LoginView = ({ form }: Props) => {
             </div>
           </div>
           <LoginForm form={form} />
+          <Typography variant="caption4" theme="primary">
+            <Link
+              href="/connexion/mot-de-passe-perdu"
+              className="flex justify-center"
+            >
+              Mot de passe perdu ?
+            </Link>
+          </Typography>
         </Box>
       </div>
     </Container>

@@ -1,12 +1,12 @@
 import { useForm, SubmitHandler } from "react-hook-form";
 import RegisterView from "./RegisterView";
 import { RegisterFormFieldsType } from "@/types/forms-types";
-import { useState } from "react";
 import { firebaseCreateUser } from "@/api/authentication";
 import { toast } from "react-toastify";
+import { useToggle } from "@/hooks/use-toggle";
 
 const RegisterContainer = () => {
-  const [isLoading, setisLoading] = useState<boolean>(false);
+  const { value: isLoading, setValue: setisLoading } = useToggle();
   const {
     handleSubmit,
     control,
@@ -29,7 +29,7 @@ const RegisterContainer = () => {
     }
     setisLoading(false);
     toast.success("Bienvenu sur mon univers");
-    // TODO: enregister notre utilisateu qui est data à une bdd
+    // TODO: enregister notre utilisateur qui est data à une bdd
     reset();
   };
 
