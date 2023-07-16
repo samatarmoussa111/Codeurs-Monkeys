@@ -1,9 +1,13 @@
 import { useForm, SubmitHandler } from "react-hook-form";
 import RegisterView from "./RegisterView";
 import { RegisterFormFieldsType } from "@/types/forms-types";
-import { firebaseCreateUser } from "@/api/authentication";
+import {
+  firebaseCreateUser,
+  firebaseSendEmailVerification,
+} from "@/api/authentication";
 import { toast } from "react-toastify";
 import { useToggle } from "@/hooks/use-toggle";
+import { firestoreCreateDocument } from "@/api/firestore";
 
 const RegisterContainer = () => {
   const { value: isLoading, setValue: setisLoading } = useToggle();
@@ -16,9 +20,31 @@ const RegisterContainer = () => {
     reset,
   } = useForm<RegisterFormFieldsType>();
 
+  const handleCreateUserDocument = async (
+    collectionName: string,
+    documentID: string,
+    data: object
+  ) => {
+    const { error } = await firestoreCreateDocument(
+      collectionName,
+      documentID,
+      data
+    );
+    if (error) {
+      toast.error(error.errorMessage);
+      setisLoading(false);
+      return;
+    }
+    toast.success("Bienvenu sur mon univers");
+    setisLoading(false);
+    reset();
+    firebaseSendEmailVerification();
+  };
+
   const handleCreateUserAuthentication = async ({
     email,
     password,
+    how_did_hear,
   }: RegisterFormFieldsType) => {
     const { error, data } = await firebaseCreateUser(email, password);
 
@@ -27,10 +53,13 @@ const RegisterContainer = () => {
       toast.error(error.errorMessage);
       return;
     }
-    setisLoading(false);
-    toast.success("Bienvenu sur mon univers");
-    // TODO: enregister notre utilisateur qui est data à une bdd
-    reset();
+    const userDocumentData = {
+      email: email,
+      how_did_hear: how_did_hear,
+      uid: data.uid,
+      creation_date: new Date(),
+    };
+    handleCreateUserDocument("users", data.uid, userDocumentData);
   };
 
   const onSubmit: SubmitHandler<RegisterFormFieldsType> = async (formData) => {
