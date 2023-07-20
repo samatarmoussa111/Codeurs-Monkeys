@@ -17,10 +17,9 @@ const HeroTopView = () => {
             theme="gray"
             className="max-w-xl"
           >
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloribus
-            quo ipsam, possimus eveniet quas eos excepturi quia placeat vel
-            autem voluptatum itaque dolores libero, quasi illo inventore omnis,
-            ipsum harum?
+            Ici, on se prend pas la tête, mais on code comme des bêtes ! Rejoins
+            notre tribu de singes codeurs, partage tes projets les plus fous et
+            fais-toi de nouveaux amis développeurs.
           </Typography>
           <div className="space-x-5 p-2.5">
             <Button baseUrl="">Commencer</Button>

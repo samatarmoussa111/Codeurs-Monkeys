@@ -1,3 +1,4 @@
+import { REGISTERED } from "@/lib/session-status";
 import Layout from "@/ui/components/layout/Layout";
 import Seo from "@/ui/components/seo/Seo";
 import MyAccountContainer from "@/ui/modules/user-profile/my-account/MyAccountContainer";
@@ -9,7 +10,7 @@ const MyAccount = () => {
         title="MyAccount sur coders monkeys"
         description="Page de MyAccount"
       />
-      <Layout withSidebar>
+      <Layout sessionStatus={REGISTERED} withSidebar>
         <MyAccountContainer />
       </Layout>
     </>

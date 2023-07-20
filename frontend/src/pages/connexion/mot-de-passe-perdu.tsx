@@ -1,3 +1,4 @@
+import { GUEST } from "@/lib/session-status";
 import Layout from "@/ui/components/layout/Layout";
 import Seo from "@/ui/components/seo/Seo";
 import ForgetPasswordContainer from "@/ui/modules/Auth/forget-password/ForgetPasswordContainer";
@@ -9,7 +10,7 @@ const ForgetPassWord = () => {
         title="Coders Monkeys"
         description="Mon super projet pour apprendre Next.js"
       />
-      <Layout>
+      <Layout sessionStatus={GUEST}>
         <ForgetPasswordContainer />
       </Layout>
     </>

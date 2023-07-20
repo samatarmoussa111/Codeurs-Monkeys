@@ -23,7 +23,7 @@ const Avatar = ({ size = "medium", src, alt }: Props) => {
   return (
     <div className={clsx(sizeStyles, "bg-gray-400 rounded-full relative")}>
       <Image
-        src={src}
+        src={src ? src : "/assets/svg/barrel.svg"}
         alt={alt}
         fill
         className="object-cover object-center  rounded-full"

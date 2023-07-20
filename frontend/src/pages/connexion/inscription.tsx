@@ -1,3 +1,4 @@
+import { GUEST } from "@/lib/session-status";
 import Layout from "@/ui/components/layout/Layout";
 import Seo from "@/ui/components/seo/Seo";
 import RegisterContainer from "@/ui/modules/Auth/register/RegisterContainer";
@@ -9,7 +10,7 @@ const Register = () => {
         title="Coders Monkeys"
         description="Mon super projet pour apprendre Next.js"
       />
-      <Layout>
+      <Layout sessionStatus={GUEST}>
         <RegisterContainer />
       </Layout>
     </>

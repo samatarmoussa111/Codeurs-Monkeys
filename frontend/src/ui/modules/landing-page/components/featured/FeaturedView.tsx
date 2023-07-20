@@ -18,29 +18,25 @@ const featuresData: featuresListInterface[] = [
     imagePath: "/assets/svg/floppy.svg",
     imageAlt: "illustration",
     title: "Ressources",
-    description:
-      "Nisi eaque quibusdam eum nobis repellendus eveniet, repudiandae nihil harum ipsa aspernatur quidem, officia ",
+    description: "Consulte et partage des ressources pour les devs ",
   },
   {
     imagePath: "/assets/svg/gamepad.svg",
     imageAlt: "illustration",
-    title: "Ressources",
-    description:
-      "Nisi eaque quibusdam eum nobis repellendus eveniet, repudiandae nihil harum ipsa aspernatur quidem, officia ",
+    title: "Entrainement",
+    description: "Entraîne-toi à devenir meilleur et trouve de l’inspiration",
   },
   {
     imagePath: "/assets/svg/speaker.svg",
     imageAlt: "illustration",
-    title: "Ressources",
-    description:
-      "Nisi eaque quibusdam eum nobis repellendus eveniet, repudiandae nihil harum ipsa aspernatur quidem, officia ",
+    title: "Visibilité",
+    description: "Expose tes projets et crée toi des opportunités ! ",
   },
   {
     imagePath: "/assets/svg/compass.svg",
     imageAlt: "illustration",
-    title: "Ressources",
-    description:
-      "Nisi eaque quibusdam eum nobis repellendus eveniet, repudiandae nihil harum ipsa aspernatur quidem, officia ",
+    title: "Relations",
+    description: "Connecte-toi avec des devs web et booste ta carrière ! ",
   },
 ];
 
@@ -99,9 +95,8 @@ const FeaturedView = () => {
               theme="gray"
               className="mb-8"
             >
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta
-              placeat incidunt repellendus error quod repellat nesciunt mollitia
-              aperiam quaerat hic, delectus, sit consequatur
+              Du partage, des connexions et des formations notre app gère tout
+              ça pour toi. Rejoins la communauté et grimpe en grade. Let's go !
             </Typography>
             <Button
               variant="secondary"

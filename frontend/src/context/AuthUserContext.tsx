@@ -1,5 +1,5 @@
 import useFirebaseAuth from "@/hooks/useFirebaseAuth";
-import { UserDocument } from "@/types/user";
+import { UserDocument, UserInterface } from "@/types/user";
 import React, { createContext, useContext } from "react";
 
 interface Props {
@@ -16,7 +16,7 @@ const initialValue = {
   userDocument: {} as UserDocument,
 };
 
-const AuthUserContext = createContext({
+export const AuthUserContext = createContext({
   authUser: initialValue,
   authUserIsLoading: true,
 });
@@ -44,5 +44,9 @@ export const AuthUserProvider = ({ children }: Props) => {
 };
 
 export const useAuth = () => {
-  useContext(AuthUserContext);
+  const { authUser, authUserIsLoading } = useContext(AuthUserContext);
+  return {
+    authUser,
+    authUserIsLoading,
+  };
 };

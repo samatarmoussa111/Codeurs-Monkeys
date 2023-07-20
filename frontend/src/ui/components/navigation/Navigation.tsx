@@ -4,10 +4,28 @@ import Typography from "@/ui/design-system/typography/Typography";
 import Button from "@/ui/design-system/button/Button";
 import Link from "next/link";
 import ActiveLink from "./ActiveLink";
+import { useAuth } from "@/context/AuthUserContext";
+import AccountAvatarLink from "./AccountAvatarLink";
 
 interface Props {}
 
 const Navigation = ({}: Props) => {
+  const { authUser } = useAuth();
+
+  const authenticationSystem = (
+    <div className="flex items-center gap-2">
+      <Link href="/connexion">
+        <Button size="small">Connexion</Button>
+      </Link>
+
+      <Link href="/connexion/inscription">
+        <Button size="small" variant="secondary">
+          Rejoindre
+        </Button>
+      </Link>
+    </div>
+  );
+
   return (
     <div className="border-b-2 border-gray-400">
       <Container className="py-1.5 flex items-center justify-between gap-7">
@@ -35,17 +53,13 @@ const Navigation = ({}: Props) => {
             <ActiveLink href="/formations">Formations</ActiveLink>
             <ActiveLink href="/contact">Contact</ActiveLink>
           </Typography>
-          <div className="flex items-center gap-2">
-            <Link href="/connexion">
-              <Button size="small">Connexion</Button>
-            </Link>
-
-            <Link href="/connexion/inscription">
-              <Button size="small" variant="secondary">
-                Rejoindre
-              </Button>
-            </Link>
-          </div>
+          {!authUser ? (
+            authenticationSystem
+          ) : (
+            <>
+              <AccountAvatarLink />
+            </>
+          )}
         </div>
       </Container>
     </div>

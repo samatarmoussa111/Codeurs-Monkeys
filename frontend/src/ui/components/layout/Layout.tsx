@@ -4,17 +4,21 @@ import Footer from "../navigation/Footer";
 import Navigation from "../navigation/Navigation";
 import Container from "../container/Container";
 import UserAccountNavigation from "../navigation/UserAccountNavigation";
+import Session from "../session/Session";
+import { sessionStatusTypes } from "@/types/session-status-types";
 
 interface Props {
   children: React.ReactNode;
   isDisplayBreadcrumbs?: boolean;
   withSidebar?: boolean;
+  sessionStatus?: sessionStatusTypes;
 }
 
 const Layout = ({
   children,
   isDisplayBreadcrumbs = true,
   withSidebar,
+  sessionStatus,
 }: Props) => {
   let view: React.ReactElement = <></>;
   if (withSidebar) {
@@ -36,12 +40,12 @@ const Layout = ({
     view = <>{children}</>;
   }
   return (
-    <>
+    <Session sessionStatus={sessionStatus}>
       <Navigation />
       {isDisplayBreadcrumbs && <BreadCrumbs />}
       {view}
       <Footer />
-    </>
+    </Session>
   );
 };
 
