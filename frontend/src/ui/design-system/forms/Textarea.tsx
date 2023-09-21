@@ -4,7 +4,7 @@ import Typography from "../typography/Typography";
 interface Props {
   isLoading: boolean;
   placeholder: string;
-  type?: "text" | "email" | "password";
+  rows?: number;
   register: any;
   errors: any;
   errorMsg?: string;
@@ -14,16 +14,16 @@ interface Props {
   label?: string;
 }
 
-const Input = ({
+const Textarea = ({
   isLoading,
   placeholder,
-  type = "text",
+  rows = 5,
   register,
   errors,
   errorMsg = "Tu dois renseigner ce champ",
   id,
-  required = true,
-  isAutocompleted = false,
+  required,
+  isAutocompleted,
   label,
 }: Props) => {
   return (
@@ -37,15 +37,17 @@ const Input = ({
           {label}
         </Typography>
       )}
-      <input
-        type={type}
+      <textarea
         placeholder={placeholder}
+        rows={rows}
         className={clsx(
-          isLoading && "cursor-not-allowed",
+          isLoading
+            ? "bg-gray-300 focus:ring-gray-300 cursor-not-allowed"
+            : "bg-white",
           errors[id]
             ? "placeholder-alert-danger text-alert-danger"
             : "placeholder-gray-600",
-          "w-full p-4 font-light border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-primary  "
+          "w-full p-4 font-light border rounded focus:outline-none focus:ring-1 focus:ring-primary border-gray-400"
         )}
         disabled={isLoading}
         {...register(id, {
@@ -55,8 +57,7 @@ const Input = ({
           },
         })}
         autoComplete={isAutocompleted ? "on" : "off"}
-      />
-
+      ></textarea>
       {errors[id] && (
         <Typography variant="caption4" component="div" theme="danger">
           {errors[id]?.message}
@@ -66,4 +67,4 @@ const Input = ({
   );
 };
 
-export default Input;
+export default Textarea;

@@ -39,6 +39,7 @@ const OnboardingFooter = ({
           <Button
             disabled={isLoading}
             variant={!isLoading ? "outline" : "disabled"}
+            action={previous}
           >
             Retour
           </Button>
