@@ -11,6 +11,7 @@ import { firestoreUpdateDocument } from "@/api/firestore";
 import { useAuth } from "@/context/AuthUserContext";
 import { toast } from "react-toastify";
 import { useEffect } from "react";
+import { updateUserAuthentificationData } from "@/api/authentication";
 
 const ProfileStep = ({
   nextStep,
@@ -44,7 +45,7 @@ const ProfileStep = ({
     }
   }, [setValue, authUser]);
 
-  const handelUodateUserDocument = async (
+  const handelUpdateUserDocument = async (
     formData: OnboardingProfileFormFieldsType
   ) => {
     const { error } = await firestoreUpdateDocument(
@@ -74,7 +75,27 @@ const ProfileStep = ({
       expertise !== formData.expertise ||
       biography !== formData.expertise
     ) {
-      handelUodateUserDocument(formData);
+      if (
+        displayName !== formData.displayName ||
+        authUser.displayName !== formData.displayName
+      ) {
+        const data = {
+          displayName: formData.displayName,
+        };
+        //utilisation de la fonction backend
+        const { error } = await updateUserAuthentificationData(
+          authUser.uid,
+          data
+        );
+
+        if (error) {
+          setIsLoading(false);
+          toast.error(error.errorMessage);
+          return;
+        }
+      }
+
+      handelUpdateUserDocument(formData);
     }
     setIsLoading(false);
     nextStep();
